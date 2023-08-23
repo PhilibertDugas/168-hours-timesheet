@@ -264,7 +264,7 @@ async function logout(request) {
 }
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-R6KYUE7Z.css";
+var tailwind_default = "/build/_assets/tailwind-O3RPWCFW.css";
 
 // app/components/Navigation.tsx
 var import_react2 = require("react"), import_react3 = require("@headlessui/react"), import_outline = require("@heroicons/react/24/outline"), import_jsx_dev_runtime2 = require("react/jsx-dev-runtime"), navigation = [
@@ -820,9 +820,11 @@ var loader2 = async ({ request }) => {
 // app/routes/_index.tsx
 var index_exports = {};
 __export(index_exports, {
+  action: () => action,
   default: () => Index,
   meta: () => meta
 });
+var import_node4 = require("@remix-run/node"), import_react7 = require("@remix-run/react"), import_react8 = require("react");
 
 // app/utils.ts
 var import_react5 = require("@remix-run/react"), import_react6 = require("react"), DEFAULT_REDIRECT = "/";
@@ -850,90 +852,96 @@ function validateEmail(email) {
 
 // app/routes/_index.tsx
 var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), meta = () => [{ title: "168 Hours Online" }], hourBlocks = [
-  "5:00",
-  "5:30",
-  "6:00",
-  "6:30",
-  "7:00",
-  "7:30",
-  "8:00",
-  "8:30",
-  "9:00",
-  "9:30",
-  "10:00",
-  "10:30",
-  "11:00",
-  "11:30",
-  "12:00",
-  "12:30",
-  "13:00",
-  "13:30",
-  "14:00",
-  "14:30",
-  "15:00",
-  "15:30",
-  "16:00",
-  "17:30",
-  "18:00",
-  "18:30",
-  "19:00",
-  "19:30",
-  "20:00",
-  "20:30",
-  "21:00",
-  "21:30",
-  "22:00",
-  "22:30",
-  "23:00",
-  "23:30",
-  "0:00",
-  "0:30",
-  "1:00",
-  "1:30",
-  "2:00",
-  "2:30",
-  "3:00",
-  "3:30",
-  "4:00",
-  "4:30"
-];
+  "5h00",
+  "5h30",
+  "6h00",
+  "6h30",
+  "7h00",
+  "7h30",
+  "8h00",
+  "8h30",
+  "9h00",
+  "9h30",
+  "10h00",
+  "10h30",
+  "11h00",
+  "11h30",
+  "12h00",
+  "12h30",
+  "13h00",
+  "13h30",
+  "14h00",
+  "14h30",
+  "15h00",
+  "15h30",
+  "16h00",
+  "17h30",
+  "18h00",
+  "18h30",
+  "19h00",
+  "19h30",
+  "20h00",
+  "20h30",
+  "21h00",
+  "21h30",
+  "22h00",
+  "22h30",
+  "23h00",
+  "23h30",
+  "0h00",
+  "0h30",
+  "1h00",
+  "1h30",
+  "2h00",
+  "2h30",
+  "3h00",
+  "3h30",
+  "4h00",
+  "4h30"
+], action = async ({ request }) => {
+  let data = await request.formData(), hoursMap = {};
+  return hourBlocks.forEach((block) => {
+    let activity = data.get(`activity_${block}`), minutes = data.get(`minutes_${block}`), tag = data.get(`tag_${block}`);
+    activity !== "" && +minutes != 0 && (hoursMap[block] = { activity, minutes: +minutes, tag });
+  }), console.log(hoursMap), (0, import_node4.redirect)("/");
+};
 function Index() {
-  let user = useOptionalUser();
+  let user = useOptionalUser(), form = (0, import_react8.useRef)(null), submit = (0, import_react7.useSubmit)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "px-4 sm:px-6 lg:px-8", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "sm:flex sm:items-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "sm:flex-auto", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("h1", { className: "text-base font-semibold leading-6 text-gray-900", children: "168 Hours Timesheet Tracker" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 66,
+        lineNumber: 99,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("p", { className: "mt-2 text-sm text-gray-700", children: "Track your time. This is an alternative to the 168 hours spreadsheet" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 69,
+        lineNumber: 102,
         columnNumber: 11
       }, this)
     ] }, void 0, !0, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 65,
+      lineNumber: 98,
       columnNumber: 9
     }, this) }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 64,
+      lineNumber: 97,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "mt-8 flow-root", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "-mx-4 -my-2 sm:-mx-6 lg:-mx-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "inline-block min-w-full py-2 align-middle", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("table", { className: "min-w-full border-separate border-spacing-0", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "mt-8 flow-root", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "-mx-4 -my-2 sm:-mx-6 lg:-mx-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "inline-block min-w-full py-2 align-middle", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("table", { className: "w-full border-separate border-spacing-0 table-fixed", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("thead", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("tr", { children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
           "th",
           {
             scope: "col",
-            className: "sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8",
+            className: "sticky top-0 z-10 w-1/5 border-b border-gray-300 bg-white bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8",
             children: "Hour"
           },
           void 0,
           !1,
           {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 80,
+            lineNumber: 113,
             columnNumber: 19
           },
           this
@@ -942,14 +950,14 @@ function Index() {
           "th",
           {
             scope: "col",
-            className: "sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell",
+            className: "sticky top-0 z-10 w-1/5 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter",
             children: "Activity"
           },
           void 0,
           !1,
           {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 86,
+            lineNumber: 119,
             columnNumber: 19
           },
           this
@@ -958,14 +966,14 @@ function Index() {
           "th",
           {
             scope: "col",
-            className: "sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell",
-            children: "Time spent (minutes)"
+            className: "sticky top-0 z-10 w-1/5 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter",
+            children: "Minutes"
           },
           void 0,
           !1,
           {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 92,
+            lineNumber: 125,
             columnNumber: 19
           },
           this
@@ -974,14 +982,14 @@ function Index() {
           "th",
           {
             scope: "col",
-            className: "sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter",
+            className: "sticky top-0 z-10 w-1/5  border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter",
             children: "Tags"
           },
           void 0,
           !1,
           {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 98,
+            lineNumber: 131,
             columnNumber: 19
           },
           this
@@ -991,9 +999,9 @@ function Index() {
           {
             scope: "col",
             className: "sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 py-3.5 pl-3 pr-4 backdrop-blur backdrop-filter sm:pr-6 lg:pr-8",
-            children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("span", { className: "sr-only", children: "Edit" }, void 0, !1, {
+            children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("span", { className: "sr-only", children: "Save" }, void 0, !1, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 108,
+              lineNumber: 141,
               columnNumber: 21
             }, this)
           },
@@ -1001,102 +1009,151 @@ function Index() {
           !1,
           {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 104,
+            lineNumber: 137,
             columnNumber: 19
           },
           this
         )
       ] }, void 0, !0, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 79,
+        lineNumber: 112,
         columnNumber: 17
       }, this) }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 78,
+        lineNumber: 111,
         columnNumber: 15
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("tbody", { children: hourBlocks.map((block, blockIndex) => /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("tr", { children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8", children: block }, void 0, !1, {
-          fileName: "app/routes/_index.tsx",
-          lineNumber: 115,
-          columnNumber: 21
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "whitespace-nowrap hidden px-3 py-4 text-sm text-gray-500 sm:table-cell", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("input", { type: "text", placeholder: "Actvity" }, void 0, !1, {
-          fileName: "app/routes/_index.tsx",
-          lineNumber: 119,
-          columnNumber: 23
-        }, this) }, void 0, !1, {
-          fileName: "app/routes/_index.tsx",
-          lineNumber: 118,
-          columnNumber: 21
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "whitespace-nowrap hidden px-3 py-4 text-sm text-gray-500 lg:table-cell", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("input", { type: "number", placeholder: "0" }, void 0, !1, {
-          fileName: "app/routes/_index.tsx",
-          lineNumber: 122,
-          columnNumber: 23
-        }, this) }, void 0, !1, {
-          fileName: "app/routes/_index.tsx",
-          lineNumber: 121,
-          columnNumber: 21
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "whitespace-nowrap px-3 py-4 text-sm text-gray-500", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("input", { type: "text", placeholder: "Tag" }, void 0, !1, {
-          fileName: "app/routes/_index.tsx",
-          lineNumber: 125,
-          columnNumber: 23
-        }, this) }, void 0, !1, {
-          fileName: "app/routes/_index.tsx",
-          lineNumber: 124,
-          columnNumber: 21
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "relative whitespace-nowrap py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-8 lg:pr-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
-          "a",
-          {
-            href: "#",
-            className: "text-indigo-600 hover:text-indigo-900",
-            children: "Edit"
-          },
-          void 0,
-          !1,
-          {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("tbody", { children: [
+        hourBlocks.map((block) => /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "whitespace-nowrap  w-1/5 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8", children: block }, void 0, !1, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 128,
-            columnNumber: 23
-          },
-          this
-        ) }, void 0, !1, {
+            lineNumber: 148,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "whitespace-nowrap  w-1/5 px-3 py-4 text-sm text-gray-500 table-cell", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
+            "input",
+            {
+              type: "text",
+              name: `activity_${block}`,
+              placeholder: "Activity",
+              form: "time_form",
+              className: "w-full",
+              required: !0
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 152,
+              columnNumber: 23
+            },
+            this
+          ) }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 151,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "whitespace-nowrap  w-1/5 px-3 py-4 text-sm text-gray-500 table-cell", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
+            "input",
+            {
+              type: "number",
+              name: `minutes_${block}`,
+              placeholder: "0",
+              form: "time_form",
+              className: "w-full",
+              required: !0
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 162,
+              columnNumber: 23
+            },
+            this
+          ) }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 161,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "whitespace-nowrap  w-1/5 px-3 py-4 text-sm text-gray-500", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
+            "input",
+            {
+              type: "text",
+              name: `tag_${block}`,
+              placeholder: "Tag",
+              form: "time_form",
+              className: "w-full"
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 172,
+              columnNumber: 23
+            },
+            this
+          ) }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 171,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { className: "relative whitespace-nowrap w-1/5 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-8 lg:pr-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
+            "button",
+            {
+              type: "submit",
+              className: "text-indigo-600 hover:text-indigo-900",
+              onClick: () => submit(form.current),
+              children: "Save"
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 181,
+              columnNumber: 23
+            },
+            this
+          ) }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 180,
+            columnNumber: 21
+          }, this)
+        ] }, block, !0, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 127,
-          columnNumber: 21
+          lineNumber: 147,
+          columnNumber: 19
+        }, this)),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react7.Form, { ref: form, id: "time_form", method: "post" }, void 0, !1, {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 191,
+          columnNumber: 17
         }, this)
-      ] }, block, !0, {
+      ] }, void 0, !0, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 114,
-        columnNumber: 19
-      }, this)) }, void 0, !1, {
-        fileName: "app/routes/_index.tsx",
-        lineNumber: 112,
+        lineNumber: 145,
         columnNumber: 15
       }, this)
     ] }, void 0, !0, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 77,
+      lineNumber: 110,
       columnNumber: 13
     }, this) }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 76,
+      lineNumber: 109,
       columnNumber: 11
     }, this) }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 75,
+      lineNumber: 108,
       columnNumber: 9
     }, this) }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 74,
+      lineNumber: 107,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 63,
+    lineNumber: 96,
     columnNumber: 5
   }, this);
 }
@@ -1104,35 +1161,35 @@ function Index() {
 // app/routes/logout.tsx
 var logout_exports = {};
 __export(logout_exports, {
-  action: () => action,
+  action: () => action2,
   loader: () => loader3
 });
-var import_node4 = require("@remix-run/node");
-var action = async ({ request }) => logout(request), loader3 = async () => (0, import_node4.redirect)("/");
+var import_node5 = require("@remix-run/node");
+var action2 = async ({ request }) => logout(request), loader3 = async () => (0, import_node5.redirect)("/");
 
 // app/routes/login.tsx
 var login_exports = {};
 __export(login_exports, {
-  action: () => action2,
+  action: () => action3,
   default: () => LoginPage,
   loader: () => loader4,
   meta: () => meta2
 });
-var import_node5 = require("@remix-run/node"), import_react7 = require("@remix-run/react"), import_react8 = require("react");
-var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), loader4 = async ({ request }) => await getUserId(request) ? (0, import_node5.redirect)("/") : (0, import_node5.json)({}), action2 = async ({ request }) => {
+var import_node6 = require("@remix-run/node"), import_react9 = require("@remix-run/react"), import_react10 = require("react");
+var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), loader4 = async ({ request }) => await getUserId(request) ? (0, import_node6.redirect)("/") : (0, import_node6.json)({}), action3 = async ({ request }) => {
   let formData = await request.formData(), email = formData.get("email"), password = formData.get("password"), redirectTo = safeRedirect(formData.get("redirectTo"), "/"), remember = formData.get("remember");
   if (!validateEmail(email))
-    return (0, import_node5.json)(
+    return (0, import_node6.json)(
       { errors: { email: "Email is invalid", password: null } },
       { status: 400 }
     );
   if (typeof password != "string" || password.length === 0)
-    return (0, import_node5.json)(
+    return (0, import_node6.json)(
       { errors: { email: null, password: "Password is required" } },
       { status: 400 }
     );
   if (password.length < 8)
-    return (0, import_node5.json)(
+    return (0, import_node6.json)(
       { errors: { email: null, password: "Password is too short" } },
       { status: 400 }
     );
@@ -1142,18 +1199,18 @@ var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), loader4 = async 
     remember: remember === "on",
     request,
     userId: user.id
-  }) : (0, import_node5.json)(
+  }) : (0, import_node6.json)(
     { errors: { email: "Invalid email or password", password: null } },
     { status: 400 }
   );
 }, meta2 = () => [{ title: "Login" }];
 function LoginPage() {
   var _a, _b, _c, _d;
-  let [searchParams] = (0, import_react7.useSearchParams)(), redirectTo = searchParams.get("redirectTo") || "/notes", actionData = (0, import_react7.useActionData)(), emailRef = (0, import_react8.useRef)(null), passwordRef = (0, import_react8.useRef)(null);
-  return (0, import_react8.useEffect)(() => {
+  let [searchParams] = (0, import_react9.useSearchParams)(), redirectTo = searchParams.get("redirectTo") || "/notes", actionData = (0, import_react9.useActionData)(), emailRef = (0, import_react10.useRef)(null), passwordRef = (0, import_react10.useRef)(null);
+  return (0, import_react10.useEffect)(() => {
     var _a2, _b2, _c2, _d2;
     (_a2 = actionData == null ? void 0 : actionData.errors) != null && _a2.email ? (_b2 = emailRef.current) == null || _b2.focus() : (_c2 = actionData == null ? void 0 : actionData.errors) != null && _c2.password && ((_d2 = passwordRef.current) == null || _d2.focus());
-  }, [actionData]), /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "flex min-h-full flex-col justify-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "mx-auto w-full max-w-md px-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react7.Form, { method: "post", className: "space-y-6", children: [
+  }, [actionData]), /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "flex min-h-full flex-col justify-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "mx-auto w-full max-w-md px-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react9.Form, { method: "post", className: "space-y-6", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(
         "label",
@@ -1329,7 +1386,7 @@ function LoginPage() {
         "Don't have an account?",
         " ",
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(
-          import_react7.Link,
+          import_react9.Link,
           {
             className: "text-blue-500 underline",
             to: {
@@ -1375,31 +1432,31 @@ function LoginPage() {
 // app/routes/join.tsx
 var join_exports = {};
 __export(join_exports, {
-  action: () => action3,
+  action: () => action4,
   default: () => Join,
   loader: () => loader5,
   meta: () => meta3
 });
-var import_node6 = require("@remix-run/node"), import_react9 = require("@remix-run/react"), import_react10 = require("react");
-var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), loader5 = async ({ request }) => await getUserId(request) ? (0, import_node6.redirect)("/") : (0, import_node6.json)({}), action3 = async ({ request }) => {
+var import_node7 = require("@remix-run/node"), import_react11 = require("@remix-run/react"), import_react12 = require("react");
+var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), loader5 = async ({ request }) => await getUserId(request) ? (0, import_node7.redirect)("/") : (0, import_node7.json)({}), action4 = async ({ request }) => {
   let formData = await request.formData(), email = formData.get("email"), password = formData.get("password"), redirectTo = safeRedirect(formData.get("redirectTo"), "/");
   if (!validateEmail(email))
-    return (0, import_node6.json)(
+    return (0, import_node7.json)(
       { errors: { email: "Email is invalid", password: null } },
       { status: 400 }
     );
   if (typeof password != "string" || password.length === 0)
-    return (0, import_node6.json)(
+    return (0, import_node7.json)(
       { errors: { email: null, password: "Password is required" } },
       { status: 400 }
     );
   if (password.length < 8)
-    return (0, import_node6.json)(
+    return (0, import_node7.json)(
       { errors: { email: null, password: "Password is too short" } },
       { status: 400 }
     );
   if (await getUserByEmail(email))
-    return (0, import_node6.json)(
+    return (0, import_node7.json)(
       {
         errors: {
           email: "A user already exists with this email",
@@ -1418,11 +1475,11 @@ var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), loader5 = async 
 }, meta3 = () => [{ title: "Sign Up" }];
 function Join() {
   var _a, _b, _c, _d;
-  let [searchParams] = (0, import_react9.useSearchParams)(), redirectTo = searchParams.get("redirectTo") ?? void 0, actionData = (0, import_react9.useActionData)(), emailRef = (0, import_react10.useRef)(null), passwordRef = (0, import_react10.useRef)(null);
-  return (0, import_react10.useEffect)(() => {
+  let [searchParams] = (0, import_react11.useSearchParams)(), redirectTo = searchParams.get("redirectTo") ?? void 0, actionData = (0, import_react11.useActionData)(), emailRef = (0, import_react12.useRef)(null), passwordRef = (0, import_react12.useRef)(null);
+  return (0, import_react12.useEffect)(() => {
     var _a2, _b2, _c2, _d2;
     (_a2 = actionData == null ? void 0 : actionData.errors) != null && _a2.email ? (_b2 = emailRef.current) == null || _b2.focus() : (_c2 = actionData == null ? void 0 : actionData.errors) != null && _c2.password && ((_d2 = passwordRef.current) == null || _d2.focus());
-  }, [actionData]), /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("div", { className: "flex min-h-full flex-col justify-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("div", { className: "mx-auto w-full max-w-md px-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react9.Form, { method: "post", className: "space-y-6", children: [
+  }, [actionData]), /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("div", { className: "flex min-h-full flex-col justify-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("div", { className: "mx-auto w-full max-w-md px-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react11.Form, { method: "post", className: "space-y-6", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("div", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(
         "label",
@@ -1558,7 +1615,7 @@ function Join() {
       "Already have an account?",
       " ",
       /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(
-        import_react9.Link,
+        import_react11.Link,
         {
           className: "text-blue-500 underline",
           to: {
@@ -1601,7 +1658,7 @@ function Join() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-KVJQ2OUY.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-EXHFPPGT.js", "/build/_shared/chunk-LQYNMWED.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-XEKTE5KM.js", imports: ["/build/_shared/chunk-2LTVY2GU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-TQUFIOEH.js", imports: ["/build/_shared/chunk-S5ZA3BAK.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-UKIBAX2W.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/join": { id: "routes/join", parentId: "root", path: "join", index: void 0, caseSensitive: void 0, module: "/build/routes/join-L6BCSYLD.js", imports: ["/build/_shared/chunk-G3ACJGOK.js", "/build/_shared/chunk-S5ZA3BAK.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-NQQY2CHQ.js", imports: ["/build/_shared/chunk-G3ACJGOK.js", "/build/_shared/chunk-S5ZA3BAK.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/logout": { id: "routes/logout", parentId: "root", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/logout-GGSXPJWV.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "14030494", hmr: { runtime: "/build/_shared/chunk-LQYNMWED.js", timestamp: 1692796681948 }, url: "/build/manifest-14030494.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-KVJQ2OUY.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-EXHFPPGT.js", "/build/_shared/chunk-LQYNMWED.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-EAFHP3VZ.js", imports: ["/build/_shared/chunk-DMZCSMEQ.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-VWFC75TP.js", imports: ["/build/_shared/chunk-S5ZA3BAK.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-UKIBAX2W.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/join": { id: "routes/join", parentId: "root", path: "join", index: void 0, caseSensitive: void 0, module: "/build/routes/join-HZN7QXXU.js", imports: ["/build/_shared/chunk-G3ACJGOK.js", "/build/_shared/chunk-S5ZA3BAK.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-4ZQXTDKL.js", imports: ["/build/_shared/chunk-G3ACJGOK.js", "/build/_shared/chunk-S5ZA3BAK.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/logout": { id: "routes/logout", parentId: "root", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/logout-GGSXPJWV.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "542f9393", hmr: { runtime: "/build/_shared/chunk-LQYNMWED.js", timestamp: 1692798862278 }, url: "/build/manifest-542F9393.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_dev: !0, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
