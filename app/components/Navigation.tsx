@@ -7,6 +7,7 @@ import {
   HomeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { User } from "@prisma/client";
 
 const navigation = [
   { name: "Timesheet", href: "#", icon: HomeIcon, current: true },
@@ -20,8 +21,9 @@ function classNames(...classes: string[]) {
 
 interface NavigationProps {
   children: React.ReactNode;
+  user: Pick<User, "email"> | null;
 }
-export default function Navigation({ children }: NavigationProps) {
+export default function Navigation({ children, user }: NavigationProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -180,7 +182,7 @@ export default function Navigation({ children }: NavigationProps) {
                       alt=""
                     />
                     <span className="sr-only">Your profile</span>
-                    <span aria-hidden="true">philibert.dugas@gmail.com</span>
+                    <span aria-hidden="true">{user?.email}</span>
                   </a>
                 </li>
               </ul>

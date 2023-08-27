@@ -8,9 +8,10 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 
-import { getUser } from "~/session.server";
+import { getUser, requireUser } from "~/session.server";
 import stylesheet from "~/tailwind.css";
 
 import Navigation from "./components/Navigation";
@@ -25,6 +26,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 };
 
 export default function App() {
+  const { user } = useLoaderData<typeof loader>();
   return (
     <html lang="en" className="h-full bg-white">
       <head>
@@ -34,7 +36,7 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <Navigation>
+        <Navigation user={user}>
           <Outlet />
         </Navigation>
         <ScrollRestoration />

@@ -14,8 +14,9 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  dailyEntries DailyEntry[]
+
   password Password?
-  notes    Note[]
 }
 
 model Password {
@@ -25,14 +26,28 @@ model Password {
   userId String @unique
 }
 
-model Note {
-  id    String @id @default(cuid())
-  title String
-  body  String
+model DailyEntry {
+  id String @id @default(cuid())
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  userId String
+  hourBlocks HourBlock[]
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String 
+}
+
+model HourBlock {
+  id String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dailyEntry DailyEntry @relation(fields: [dailyEntryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  dailyEntryId String
+
+  blockNumber Int
+  activityName String?
+  tags String?
 }
